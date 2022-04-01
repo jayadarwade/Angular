@@ -1,0 +1,12 @@
+<div class="container">
+    <div>
+    <label>Name</label>
+    <input type="text" [(ngModel)]="categoryname" name="categoryname" class="form-control">
+    </div>
+    <div>
+        <label>Image</label>
+        <input type="file" class="form-control" name="categoryimage" (change)="selectImage($event)">
+        </div>
+    <button class="btn btn-primary" (click) = "addCategory()">Add category</button>
+
+</div>
