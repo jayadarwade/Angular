@@ -15,6 +15,6 @@ export class AppComponent {
   }
   public singOut(){
     localStorage.removeItem('jwt-token');
-    this._router.navigate(['login']);
+    this._router.navigate(['/register']);
   }
 }

@@ -7,12 +7,15 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { UserService } from './user.service';
 import { CategoryComponent } from './category/category.component';
 import { CategoryAddComponent } from './category-add/category-add.component';
 import { CategoryService } from './category.service';
 import {AuthGuard} from './auth.guard'
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import {AuthGuard} from './auth.guard'
     AdminRegisterComponent,
     AdminLoginComponent,
     CategoryComponent,
-    CategoryAddComponent
+    CategoryAddComponent,
+    AdminRegistrationComponent,
+    CategoryEditComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,11 @@ import {AuthGuard} from './auth.guard'
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserService,CategoryService,AuthGuard],
+  providers: [UserService,CategoryService,AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

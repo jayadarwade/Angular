@@ -15,7 +15,6 @@ export class UserLoginComponent implements OnInit {
    this._login.Logindone(this.email,this.password).subscribe(data=>{
      console.log(this.email+' '+this.password)
      console.log(data)
-    //  status: "login success
      if(data.status=='login success'){
        alert('login succes')
        localStorage.setItem('jwt-token',data.token);
