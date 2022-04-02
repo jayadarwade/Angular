@@ -7,10 +7,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                 <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">TODAY'S MEAL</a> </li>
-                <li class="nav-item"> <a class="nav-link" routerLink="register">REGISTER</a> </li>
-                <li class="nav-item"> <a class="nav-link" routerLink="login">LOGIN</a> </li>
-                <li class="nav-item"> <a class="nav-link" routerLink="categoryList">Category List</a> </li>
-                <li class="nav-item"> <a class="nav-link" routerLink="appCategory">Add Category</a> </li>
+                <li class="nav-item"> <a class="nav-link" *ngIf="!isLoggedIn()" routerLink="register">REGISTER</a> </li>
+                <li class="nav-item"> <a class="nav-link" *ngIf="!isLoggedIn()" routerLink="login">LOGIN</a> </li>
+                <li class="nav-item"> <a class="nav-link" *ngIf="isLoggedIn()" routerLink="categoryList">Category List</a> </li>
+                <li class="nav-item"> <a class="nav-link" *ngIf="isLoggedIn()" routerLink="appCategory">Add Category</a> </li>
+                <li class="nav-item"> <a class="nav-link" *ngIf="isLoggedIn()" (click)="singOut()" href="#">Sing Out</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-search"></i></a> </li>
             </ul>
             <div class="d-flex flex-column sim"> <span> item added to your order</span> <small class="text-primary">view

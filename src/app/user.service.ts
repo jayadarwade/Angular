@@ -28,6 +28,9 @@ export class UserService {
       password:password,
     })
   }
+  public checkToken():boolean{
+    return !!localStorage.getItem('jwt-token');
+  }
 }
 
 

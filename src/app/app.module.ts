@@ -12,7 +12,7 @@ import { UserService } from './user.service';
 import { CategoryComponent } from './category/category.component';
 import { CategoryAddComponent } from './category-add/category-add.component';
 import { CategoryService } from './category.service';
-
+import {AuthGuard} from './auth.guard'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,7 @@ import { CategoryService } from './category.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserService,CategoryService],
+  providers: [UserService,CategoryService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
